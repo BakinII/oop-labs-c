@@ -24,10 +24,16 @@ public:
     void print();
     void Sum(Fractional a);
 
+    friend int getnum(Fractional);
+    friend int getden(Fractional);
+
     Fractional operator+(Fractional &t2);
     const Fractional& operator=(const Fractional &t1);
     operator float();
     friend Fractional operator ++(Fractional &m1,int i1);
     friend Fractional operator ++(Fractional &m1);
     friend Fractional operator -(Fractional &M1,Fractional &m2);
+
+    friend ostream& operator<<(ostream& out ,Fractional& C);
+    friend istream& operator>>(istream& in ,Fractional& C);
 };

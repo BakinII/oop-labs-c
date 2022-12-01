@@ -106,3 +106,18 @@ const Fractional& Fractional:: operator=(const Fractional &a){
     }
     return *this;
 }
+
+int getnum(Fractional a){
+    return a.num;
+}
+int getden(Fractional a){
+    return a.den;
+}
+
+ ostream& operator <<(ostream& out ,Fractional& C){
+    return out<<getnum(C)<<'/'<<getden(C)<<endl ;
+}
+istream& operator >>(istream& in ,Fractional& C){
+    cout<<"введите числитель";in>>C.num;
+    cout<<"введите знаменатель";in>>C.den;
+}

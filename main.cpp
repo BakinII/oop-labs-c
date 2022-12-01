@@ -10,5 +10,6 @@ int main() {
     t2=(temp2-temp);
     t2++;
     t2.print();
+    cout<<t2;
     return 0;
 }//++,
