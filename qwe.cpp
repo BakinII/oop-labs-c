@@ -25,7 +25,6 @@ Fractional::Fractional(int a){
 Fractional::Fractional(Fractional &a){
     num=a.num;
     den=a.den;
-
     int size=0;
     while(a.name[size] != '\0') {
         ++size;
@@ -38,7 +37,6 @@ Fractional::Fractional(Fractional &a){
 }
 Fractional::~Fractional(){
     delete []name;
-
 }
 void Fractional::Reduction(){
     int t=gcd(num,den);
@@ -61,6 +59,7 @@ Fractional Fractional::operator + (Fractional& t2){
     temp.Reduction();
     return temp;
 }
+
 Fractional operator - (Fractional& t1,Fractional& t2){
     Fractional temp(t1.num*t2.den-t2.num*t1.den,t1.den*t2.den);
     temp.Reduction();
@@ -69,13 +68,19 @@ Fractional operator - (Fractional& t1,Fractional& t2){
 Fractional:: operator float(){
     return(float(num)/den);
 }
-Fractional operator ++(Fractional &m1,int n){
-    m1.num+=m1.num;
-    m1.den+=m1.den;
+Fractional Fractional::operator ++(int n){
+    Fractional t(*this);
+    /*this->num+=this->num;
+    this->den+=this->den;
+    this->Reduction();*/
+    ++(*this);
+    return t;
 }
-Fractional operator ++(Fractional &m1){
-    m1.num+=m1.num;
-    m1.den+=m1.den;
+Fractional Fractional::operator ++(){
+    this->num+=this->num;
+    this->den+=this->den;
+    this->Reduction();
+    return *this;
 }
 const Fractional& Fractional:: operator=(const Fractional &a){
     if(&a==this) return *this;
@@ -83,7 +88,6 @@ const Fractional& Fractional:: operator=(const Fractional &a){
     name=NULL;
     this->num=a.num;
     this->den=a.den;
-    // name=NULL;
     if (a.name!=0) {
         int size = 0;
         while (a.name[size] != '\0') {

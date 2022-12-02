@@ -24,8 +24,10 @@ public:
     Fractional operator+(Fractional &t2);
     const Fractional& operator=(const Fractional &t1);
     operator float();
-    friend Fractional operator ++(Fractional &m1,int i1);
-    friend Fractional operator ++(Fractional &m1);
+
+    Fractional operator ++(int);
+    Fractional operator ++();
+
     friend Fractional operator -(Fractional &M1,Fractional &m2);
 
     friend ostream& operator<<(ostream& out ,Fractional& C);
