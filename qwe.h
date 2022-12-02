@@ -1,9 +1,3 @@
-//
-// Created by иван on 27.11.2022.
-//
-
-//#ifndef UNTITLED10_QWE_H
-//#define UNTITLED10_QWE_H
 
 #include <iostream>
 using namespace std;
@@ -36,4 +30,5 @@ public:
 
     friend ostream& operator<<(ostream& out ,Fractional& C);
     friend istream& operator>>(istream& in ,Fractional& C);
+    friend void printfile(Fractional);
 };

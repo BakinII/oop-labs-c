@@ -1,9 +1,4 @@
-//
-// Created by иван on 27.11.2022.
-//
-
 #include "qwe.h"
-//#include "headers.h"
 
 int Fractional::gcd(int a,int b){
     if (a%b==0) return b;
@@ -17,14 +12,12 @@ Fractional::Fractional(int a,int b){
     name=new char[4]{(char(num+'0')), '/' , char(den+'0') , '\0' };
 }
 Fractional::Fractional(){
-   // Fractional(0,1);
     num=0;
     den=0;
-    name=new char [1];//new char[num,'/',den];
+    name=new char [1];
     name[0]='\0';
 }
 Fractional::Fractional(int a){
-    //Fractional(a,1);
     num=a;
     den=1;
     name=new char[num,'/',den,'\0'];
@@ -66,10 +59,7 @@ void Fractional::Sum(Fractional a){
 Fractional Fractional::operator + (Fractional& t2){
     Fractional temp(this->num*t2.den+t2.num*this->den,this->den*t2.den);
     temp.Reduction();
-    //temp.name=NULL;
-   // Fractional temp(1,2);
     return temp;
-    //return Fractional(1,2);
 }
 Fractional operator - (Fractional& t1,Fractional& t2){
     Fractional temp(t1.num*t2.den-t2.num*t1.den,t1.den*t2.den);
@@ -106,7 +96,6 @@ const Fractional& Fractional:: operator=(const Fractional &a){
     }
     return *this;
 }
-
 int getnum(Fractional a){
     return a.num;
 }
@@ -114,7 +103,7 @@ int getden(Fractional a){
     return a.den;
 }
 
- ostream& operator <<(ostream& out ,Fractional& C){
+ostream& operator <<(ostream& out ,Fractional& C){
     return out<<getnum(C)<<'/'<<getden(C)<<endl ;
 }
 istream& operator >>(istream& in ,Fractional& C){
