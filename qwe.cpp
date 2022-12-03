@@ -70,9 +70,6 @@ Fractional:: operator float(){
 }
 Fractional Fractional::operator ++(int n){
     Fractional t(*this);
-    /*this->num+=this->num;
-    this->den+=this->den;
-    this->Reduction();*/
     ++(*this);
     return t;
 }
@@ -106,11 +103,26 @@ int getnum(Fractional a){
 int getden(Fractional a){
     return a.den;
 }
-
+/*
 ostream& operator <<(ostream& out ,Fractional& C){
     return out<<getnum(C)<<'/'<<getden(C)<<endl ;
 }
 istream& operator >>(istream& in ,Fractional& C){
     cout<<"введите числитель";in>>C.num;
     cout<<"введите знаменатель";in>>C.den;
+}*/
+void printtxtfile(Fractional& c){
+    ofstream f("aaa.txt", ios_base::out);
+    f << c.num;
+}
+void printbinfile(Fractional& c){
+    ofstream f("txt.txt", ios_base::binary);
+    f << (char)c.num;
+}
+int scanbinfile(Fractional& c){
+    ifstream f("txt.txt", ios_base::binary);
+    unsigned char a;
+    f>>a;
+    c.num=(int)a;
+    return (int)a;
 }

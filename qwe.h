@@ -1,5 +1,9 @@
-
+#include <stdio.h>
 #include <iostream>
+#include <string>
+#include <cmath>
+#include <string.h>
+#include <fstream>
 using namespace std;
 
 class Fractional{
@@ -9,6 +13,7 @@ private:
     char *name;
     int gcd(int a,int b);
 public:
+    void createname();
     Fractional(int a,int b);
     Fractional();
     Fractional(int a);
@@ -30,7 +35,11 @@ public:
 
     friend Fractional operator -(Fractional &M1,Fractional &m2);
 
-    friend ostream& operator<<(ostream& out ,Fractional& C);
+    //friend ostream& operator<<(ostream& out ,Fractional& C);
+    friend ofstream& operator<<(ofstream& file,Fractional& C);
     friend istream& operator>>(istream& in ,Fractional& C);
-    friend void printfile(Fractional);
+    friend void printtxtfile(Fractional&);
+    friend void printbinfile(Fractional&);
+    friend int scanbinfile(Fractional&);
 };
+
