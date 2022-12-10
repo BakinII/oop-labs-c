@@ -56,3 +56,6 @@ void deque::printdeq() {
         tmp = tmp->next;
     }
 }
+void deque::printtsmth(){
+    cout<<"deq func"<<endl;
+}

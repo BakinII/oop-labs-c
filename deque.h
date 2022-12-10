@@ -6,7 +6,7 @@
 #define UNTITLED10_DEQUE_H
 #include "qwe.h"
 
-class deque {
+class deque: public Fractional{
 friend class Fractional;
 private:
     struct element{
@@ -21,7 +21,7 @@ public:
         void AddEnd(Fractional);
         bool DellBegin(Fractional *value);
         void printdeq();
-
+        void printtsmth();
 };
 
 

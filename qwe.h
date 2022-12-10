@@ -4,6 +4,7 @@
 #include <cmath>
 #include <string.h>
 #include <fstream>
+
 using namespace std;
 
 class Fractional{
@@ -35,11 +36,13 @@ public:
 
     friend Fractional operator -(Fractional &M1,Fractional &m2);
 
-    //friend ostream& operator<<(ostream& out ,Fractional& C);
-    friend ofstream& operator<<(ofstream& file,Fractional& C);
+    friend ostream& operator<<(ostream& out ,Fractional& C);
+    //friend ofstream& operator<<(ofstream& file,Fractional& C);
     friend istream& operator>>(istream& in ,Fractional& C);
     friend void printtxtfile(Fractional&);
     friend void printbinfile(Fractional&);
     friend int scanbinfile(Fractional&);
+
+    virtual void printtsmth();
 };
 

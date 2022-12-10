@@ -103,10 +103,10 @@ int getnum(Fractional a){
 int getden(Fractional a){
     return a.den;
 }
-/*
+
 ostream& operator <<(ostream& out ,Fractional& C){
     return out<<getnum(C)<<'/'<<getden(C)<<endl ;
-}
+}/*
 istream& operator >>(istream& in ,Fractional& C){
     cout<<"введите числитель";in>>C.num;
     cout<<"введите знаменатель";in>>C.den;
@@ -125,4 +125,7 @@ int scanbinfile(Fractional& c){
     f>>a;
     c.num=(int)a;
     return (int)a;
+}
+void Fractional::printtsmth() {
+    cout<<"Frac func"<<endl;
 }
