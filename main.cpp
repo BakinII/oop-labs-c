@@ -12,11 +12,11 @@ int main() {
     //t2.print();
 
     //cout<<temp;
-    printtxtfile(temp);
-    printbinfile(temp);
+    //printtxtfile(temp);
+    //printbinfile(temp);
 
 
-    cout<<scanbinfile(temp);
+    //cout<<scanbinfile(temp);
     return 0;
 
 }

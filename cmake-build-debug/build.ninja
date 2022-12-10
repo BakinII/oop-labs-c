@@ -61,6 +61,12 @@ build CMakeFiles/untitled10.dir/qwe.cpp.obj: CXX_COMPILER__untitled10_Debug C$:/
   OBJECT_DIR = CMakeFiles\untitled10.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled10.dir
 
+build CMakeFiles/untitled10.dir/deque.cpp.obj: CXX_COMPILER__untitled10_Debug C$:/Users/иван/CLionProjects/untitled10/deque.cpp || cmake_object_order_depends_target_untitled10
+  DEP_FILE = CMakeFiles\untitled10.dir\deque.cpp.obj.d
+  FLAGS = -std=c++11 -g -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\untitled10.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled10.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled10
@@ -69,7 +75,7 @@ build CMakeFiles/untitled10.dir/qwe.cpp.obj: CXX_COMPILER__untitled10_Debug C$:/
 #############################################
 # Link the executable untitled10.exe
 
-build untitled10.exe: CXX_EXECUTABLE_LINKER__untitled10_Debug CMakeFiles/untitled10.dir/main.cpp.obj CMakeFiles/untitled10.dir/qwe.cpp.obj
+build untitled10.exe: CXX_EXECUTABLE_LINKER__untitled10_Debug CMakeFiles/untitled10.dir/main.cpp.obj CMakeFiles/untitled10.dir/qwe.cpp.obj CMakeFiles/untitled10.dir/deque.cpp.obj
   FLAGS = -std=c++11 -g -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\untitled10.dir
