@@ -9,8 +9,8 @@ using namespace std;
 
 class Fractional{
 private:
-    int num;
-    int den;
+    int numerator;
+    int denominator;
     char *name;
     int gcd(int a,int b);
 public:
@@ -20,12 +20,12 @@ public:
     Fractional(int a);
     Fractional(Fractional &a);
     ~Fractional();
-    void Reduction();
+    void reduction();
     void print();
-    void Sum(Fractional a);
+    void sum(Fractional a);
 
-    friend int getnum(Fractional);
-    friend int getden(Fractional);
+    friend int getNumerator(Fractional);
+    friend int getDenominator(Fractional);
 
     Fractional operator+(Fractional &t2);
     const Fractional& operator=(const Fractional &t1);
@@ -39,10 +39,10 @@ public:
     friend ostream& operator<<(ostream& out ,Fractional& C);
     //friend ofstream& operator<<(ofstream& file,Fractional& C);
     friend istream& operator>>(istream& in ,Fractional& C);
-    friend void printtxtfile(Fractional&);
-    friend void printbinfile(Fractional&);
-    friend int scanbinfile(Fractional&);
+    friend void printTextFile(Fractional&);
+    friend void printBinaryFile(Fractional&);
+    friend int scanBinaryFile(Fractional&);
 
-    virtual void printtsmth();
+    virtual void printSomething();
 };
 

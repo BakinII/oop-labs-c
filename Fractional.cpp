@@ -1,4 +1,4 @@
-#include "qwe.h"
+#include "Fractional.h"
 
 int Fractional::gcd(int a,int b){
     if (a%b==0) return b;
@@ -7,24 +7,24 @@ int Fractional::gcd(int a,int b){
     return gcd(a,b%a);
 }
 Fractional::Fractional(int a,int b){
-    num=a;
-    den=b;
-    name=new char[4]{(char(num+'0')), '/' , char(den+'0') , '\0' };
+    numerator=a;
+    denominator=b;
+    name=new char[4]{(char(numerator + '0')), '/' , char(denominator + '0') , '\0' };
 }
 Fractional::Fractional(){
-    num=0;
-    den=0;
+    numerator=0;
+    denominator=0;
     name=new char [1];
     name[0]='\0';
 }
 Fractional::Fractional(int a){
-    num=a;
-    den=1;
-    name=new char[num,'/',den,'\0'];
+    numerator=a;
+    denominator=1;
+    name=new char[numerator,'/',denominator,'\0'];
 }
 Fractional::Fractional(Fractional &a){
-    num=a.num;
-    den=a.den;
+    numerator=a.numerator;
+    denominator=a.denominator;
     int size=0;
     while(a.name[size] != '\0') {
         ++size;
@@ -38,35 +38,35 @@ Fractional::Fractional(Fractional &a){
 Fractional::~Fractional(){
     delete []name;
 }
-void Fractional::Reduction(){
-    int t=gcd(num,den);
-    num/=t;
-    den/=t;
+void Fractional::reduction(){
+    int t=gcd(numerator, denominator);
+    numerator/=t;
+    denominator/=t;
 }
 void Fractional::print(){
-    cout<<num<<"/"<<den<<" or ";
+    cout << numerator << "/" << denominator << " or ";
     if(name!=0){
         cout<<name;
     }
     cout<<endl;
 }
-void Fractional::Sum(Fractional a){
-    num+=a.num;
-    den+=a.den;
+void Fractional::sum(Fractional a){
+    numerator+=a.numerator;
+    denominator+=a.denominator;
 }
 Fractional Fractional::operator + (Fractional& t2){
-    Fractional temp(this->num*t2.den+t2.num*this->den,this->den*t2.den);
-    temp.Reduction();
+    Fractional temp(this->numerator * t2.denominator + t2.numerator * this->denominator, this->denominator * t2.denominator);
+    temp.reduction();
     return temp;
 }
 
 Fractional operator - (Fractional& t1,Fractional& t2){
-    Fractional temp(t1.num*t2.den-t2.num*t1.den,t1.den*t2.den);
-    temp.Reduction();
+    Fractional temp(t1.numerator * t2.denominator - t2.numerator * t1.denominator, t1.denominator * t2.denominator);
+    temp.reduction();
     return temp;
 };
 Fractional:: operator float(){
-    return(float(num)/den);
+    return(float(numerator) / denominator);
 }
 Fractional Fractional::operator ++(int n){
     Fractional t(*this);
@@ -74,17 +74,17 @@ Fractional Fractional::operator ++(int n){
     return t;
 }
 Fractional Fractional::operator ++(){
-    this->num+=this->num;
-    this->den+=this->den;
-    this->Reduction();
+    this->numerator+=this->numerator;
+    this->denominator+=this->denominator;
+    this->reduction();
     return *this;
 }
 const Fractional& Fractional:: operator=(const Fractional &a){
     if(&a==this) return *this;
     if(name) delete[] name;
     name=NULL;
-    this->num=a.num;
-    this->den=a.den;
+    this->numerator=a.numerator;
+    this->denominator=a.denominator;
     if (a.name!=0) {
         int size = 0;
         while (a.name[size] != '\0') {
@@ -97,35 +97,35 @@ const Fractional& Fractional:: operator=(const Fractional &a){
     }
     return *this;
 }
-int getnum(Fractional a){
-    return a.num;
+int getNumerator(Fractional a){
+    return a.numerator;
 }
-int getden(Fractional a){
-    return a.den;
+int getDenominator(Fractional a){
+    return a.denominator;
 }
 
 ostream& operator <<(ostream& out ,Fractional& C){
-    return out<<getnum(C)<<'/'<<getden(C)<<endl ;
+    return out << getNumerator(C) << '/' << getDenominator(C) << endl ;
 }/*
 istream& operator >>(istream& in ,Fractional& C){
-    cout<<"введите числитель";in>>C.num;
-    cout<<"введите знаменатель";in>>C.den;
+    cout<<"введите числитель";in>>C.numerator;
+    cout<<"введите знаменатель";in>>C.denominator;
 }*/
-void printtxtfile(Fractional& c){
+void printTextFile(Fractional& c){
     ofstream f("aaa.txt", ios_base::out);
-    f << c.num;
+    f << c.numerator;
 }
-void printbinfile(Fractional& c){
+void printBinaryFile(Fractional& c){
     ofstream f("txt.txt", ios_base::binary);
-    f << (char)c.num;
+    f << (char)c.numerator;
 }
-int scanbinfile(Fractional& c){
+int scanBinaryFile(Fractional& c){
     ifstream f("txt.txt", ios_base::binary);
     unsigned char a;
     f>>a;
-    c.num=(int)a;
+    c.numerator=(int)a;
     return (int)a;
 }
-void Fractional::printtsmth() {
+void Fractional::printSomething() {
     cout<<"Frac func"<<endl;
 }

@@ -1,13 +1,10 @@
-//
-// Created by иван on 07.12.2022.
-//
 
-#include "deque.h"
+#include "Deque.h"
 
-deque::deque(){
+Deque::Deque(){
     head= nullptr;
 }
-deque::~deque(){
+Deque::~Deque(){
     if(head != NULL) {
         element *curr = head;
         while(curr->next != NULL) {
@@ -20,13 +17,13 @@ deque::~deque(){
     }
 }
 
-void deque::AddBegin(Fractional value) {
+void Deque::addBegin(Fractional value) {
     element* tmp = new element;
     tmp->data = value;
     tmp->next = head;
     (head) = tmp;
 }
-void deque::AddEnd(Fractional value) {
+void Deque::addEnd(Fractional value) {
     element* tmp = new element;
     tmp->data = value;
     tmp->next = NULL;
@@ -40,7 +37,7 @@ void deque::AddEnd(Fractional value) {
     head->next = tmp;
     this->head = first;
 }
-bool deque::DellBegin(Fractional *value) {
+bool Deque::dellBegin(Fractional *value) {
     if (head == NULL)
         return 0;
     *value = (head)->data;
@@ -49,13 +46,13 @@ bool deque::DellBegin(Fractional *value) {
     head = head1;
     return 1;
 }
-void deque::printdeq() {
+void Deque::printList() {
     element* tmp=head;
     while (tmp!=NULL){
         std::cout<<(tmp->data)<<std::endl;
         tmp = tmp->next;
     }
 }
-void deque::printtsmth(){
+void Deque::printSomething(){
     cout<<"deq func"<<endl;
 }
